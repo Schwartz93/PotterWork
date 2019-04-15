@@ -1,6 +1,5 @@
 <?php
 
-
 use PHPUnit\Framework\TestCase;
 use App\BookHandler;
 
@@ -37,9 +36,7 @@ class BookHandlerTest extends TestCase
     {
         $bookhandler = new BookHandler();
         $books = $bookhandler->getBooks();
-        $this->assertIsArray($books);
+        $this->assertInternalType("array", $books);
     }
-
-
 
 }
