@@ -1,7 +1,8 @@
 [
   {
     "title": "The Philosopher's Stone",
-    "year": "1997"
+    "year": "1997",
+    "cover": "../pics/potter1.jpg"
   },
   {
     "title": "The Chamber of Secrets",
