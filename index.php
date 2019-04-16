@@ -19,12 +19,12 @@ use App\BookHandler;
     <nav class="navbar navbar-light bg-light">
         <h2>Today: Harry Potter Deal!</h2>
         <h3>Scroll down for more information</h3>
-        <form action="index.php" method="post">
+        <form action="" method="post">
             <button type="submit" class="btn btn-primary" name="search" value="Search Books">Search for books</button>
         </form>
     </nav>
+    <form action="" method="post">
     <?php
-    if (isset($_POST['search'])) {
         $books = new BookHandler();
         $data = $books->getBooks();
     ?>
@@ -104,15 +104,23 @@ use App\BookHandler;
         </tr>
         </tbody>
     </table>
-        <?php echo "<hr>"; ?>
-
-        <h3>Selected Items:</h3>
         <?php
-
+            echo "<hr>";
+            echo "<button type='submit' class='btn btn-primary' name='choose'>Choose selected books</button>";
+            echo "<h3>Selected Items:</h3>";
         ?>
-    <?php } else {
-        echo "Nothing to display";
-    } ?>
+        <?php
+            if (isset($_POST['choose'])) {
+                $select = new BookHandler();
+                $selected = $select->getSelectedBooks();
 
+                foreach ($selected as $select) {
+                    echo $select;
+                }
+            } else {
+                echo "You have no selected books!";
+            }
+        ?>
+        </form>
 </body>
 </html>
