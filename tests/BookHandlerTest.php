@@ -36,7 +36,16 @@ class BookHandlerTest extends TestCase
     {
         $bookhandler = new BookHandler();
         $books = $bookhandler->getBooks();
-        $this->assertInternalType("array", $books);
+        $this->assertIsArray($books);
     }
 
+    /**
+     * @test
+     */
+    public function getSelectedBooksReturnsArray()
+    {
+        $bookhandler = new BookHandler();
+        $selectedBooks = $bookhandler->getSelectedBooks();
+        $this->assertIsArray($selectedBooks);
+    }
 }

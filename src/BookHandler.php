@@ -16,11 +16,7 @@ class BookHandler {
 
     public function getSelectedBooks()
     {
-        $selected[] = $_POST['books'];
-        echo "<pre>";
-        var_dump($selected);
-        echo "</pre>";
-        return $selected;
+
     }
 }
 
