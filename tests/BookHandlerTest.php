@@ -28,7 +28,7 @@ class BookHandlerTest extends TestCase
     {
         $this->assertJsonFileEqualsJsonFile("../data/books.json", "../data/books.json");
     }
-    
+
     /**
      * @test
      */

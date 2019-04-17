@@ -2,6 +2,7 @@
 require "vendor/autoload.php";
 
 use App\BookHandler;
+use App\DisplaySelectedBooks;
 
 ?>
 
@@ -18,11 +19,7 @@ use App\BookHandler;
 </head>
 <body>
 <nav class="navbar navbar-light bg-light">
-    <h2>Today: Harry Potter Deal!</h2>
-    <h3>Scroll down for more information</h3>
-    <form action="" method="post">
-        <button type="submit" class="btn btn-primary" name="search" value="Search Books">Search for books</button>
-    </form>
+    <h2 style="margin: 0 auto">Today: Harry Potter Deal!</h2>
 </nav>
 <form action="" method="post">
     <?php
@@ -48,11 +45,11 @@ use App\BookHandler;
             echo "<td>" . '<img src="pics/potter1.jpg" width="100" height="150">' . "</td>";
             echo "<td>" . "<select name='copiesPotter1'>"
                 . "<option value='0'>0</option>" .
-                  "<option value='1'>1</option>" .
-                  "<option value='2'>2</option>" .
-                  "<option value='3'>3</option>" .
-                  "<option value='4'>4</option>" .
-                 "</td>";
+                "<option value='1'>1</option>" .
+                "<option value='2'>2</option>" .
+                "<option value='3'>3</option>" .
+                "<option value='4'>4</option>" .
+                "</td>";
             ?>
         </tr>
         <tr>
@@ -117,19 +114,17 @@ use App\BookHandler;
         </tr>
     </table>
     <?php
-        echo "<hr>";
-        echo "<button type='submit' class='btn btn-primary' name='choose'>Choose selected books</button>";
-        echo "<h3>Selected Items:</h3>";
+    echo "<hr>";
+    echo "<div class='col-md4 text-center'>";
+    echo "<button type='submit'  style='margin: 2em' class='btn btn-primary' name='choose'>Choose selected books</button>";
+    echo "<h3>Selected Items:</h3>";
+    echo "</div>";
     ?>
     <?php
     if (isset($_POST['choose'])) {
-        $select = new BookHandler();
-        $selected = $select->getSelectedBooks();
-        var_dump($selected);
-        } else {
-        echo "You have no selected books!";
+        $display = new DisplaySelectedBooks();
+        $display->displayBooks();
     }
-
     ?>
 </form>
 </body>

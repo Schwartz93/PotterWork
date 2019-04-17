@@ -12,7 +12,7 @@ class DbDisplayTest extends TestCase
     {
         $this->assertTrue(true);
     }
-    
+
 //    /**
 //     * @test
 //     */
